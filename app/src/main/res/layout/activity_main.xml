@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context="com.vocsy.fakecall.newFakeCall.MainActivity">
+    tools:context="com.vocsy.fakecall.ui.MainScreenActivity">
 
     <RelativeLayout
         android:id="@+id/toolBar"

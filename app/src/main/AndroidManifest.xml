@@ -55,7 +55,7 @@
             android:value="@string/admob_app_id" />
 
         <activity
-            android:name="com.vocsy.fakecall.ui.SettingActivity"
+            android:name="com.vocsy.fakecall.ui.SettingScreenActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
@@ -71,7 +71,7 @@
         </provider>
 
         <activity
-            android:name="com.vocsy.fakecall.newFakeCall.MainActivity"
+            android:name="com.vocsy.fakecall.ui.MainScreenActivity"
             android:exported="true"
             android:screenOrientation="portrait">
 
@@ -83,30 +83,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.vocsy.fakecall.permission.MyPermission"
+            android:name="com.vocsy.fakecall.base.MyPermission"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name="com.vocsy.fakecall.ui.AudioCallActivity"
+            android:name="com.vocsy.fakecall.ui.VoiceCallScreenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.vocsy.fakecall.ui.VideoCallActivity"
+            android:name="com.vocsy.fakecall.ui.VideoCallScreenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.vocsy.fakecall.ui.FinalVideoCallActivity"
+            android:name="com.vocsy.fakecall.ui.FinalVideoCallScreenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.vocsy.fakecall.ui.AddPersonClickActivity"
+            android:name="com.vocsy.fakecall.ui.AddContactScreenActivity"
             android:screenOrientation="portrait" />
 
         <service
-            android:name="com.vocsy.fakecall.VideoCallAlarmService"
+            android:name="com.vocsy.fakecall.service.VideoCallAlarmService"
             android:enabled="true"
             android:exported="false"
             android:process=":remote"
             android:stopWithTask="false" />
         <service
-            android:name="com.vocsy.fakecall.AudioCallAlarmService"
+            android:name="com.vocsy.fakecall.service.AudioCallAlarmService"
             android:enabled="true"
             android:exported="false"
             android:process=":remote"

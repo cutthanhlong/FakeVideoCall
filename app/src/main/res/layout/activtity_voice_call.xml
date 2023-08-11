@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/green_bg"
+    android:keepScreenOn="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/endCallLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/green_light"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@color/green_light">
+
+
+            <com.vocsy.fakecall.adapter.MaskableFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                miv:mask="@drawable/new_call_lay_back_bottom"
+                miv:porterduffxfermode="DST_IN">
+
+                <ImageView
+                    android:id="@+id/personimageforbg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/dragon" />
+
+            </com.vocsy.fakecall.adapter.MaskableFrameLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_alignParentBottom="true">
+
+                <com.vocsy.fakecall.adapter.MaskableFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    miv:mask="@drawable/new_call_lay_back_bottom"
+                    miv:porterduffxfermode="DST_IN">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/green_gradieant_bg" />
+
+                </com.vocsy.fakecall.adapter.MaskableFrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/personname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="Name"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                    <Chronometer
+                        android:id="@+id/chronometerd"
+                        android:layout_width="90.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15dp" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/MikeBT"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="15dp"
+                android:src="@drawable/ic_mike_on" />
+
+            <ImageView
+                android:id="@+id/vidCallBT"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="15dp"
+                android:src="@drawable/ic_call_video"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/speakerCall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="15dp"
+                android:src="@drawable/ic_call_speaker" />
+
+            <ImageView
+                android:id="@+id/endCall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="15dp"
+                android:src="@drawable/ic_call_end" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/recCallLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentTop="true"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical">
+
+
+            <com.vocsy.fakecall.adapter.MaskableFrameLayout
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                miv:mask="@drawable/person_image_card_mask"
+                miv:porterduffxfermode="DST_IN">
+
+                <ImageView
+                    android:id="@+id/personphoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/dragon" />
+
+            </com.vocsy.fakecall.adapter.MaskableFrameLayout>
+
+            <TextView
+                android:id="@+id/callername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Name"
+                android:textColor="#3C3C3C"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingBottom="100dp"
+            android:visibility="gone">
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="40dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:id="@+id/refcall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_call_cut" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="top|center_horizontal"
+                    android:minHeight="25dp"
+                    android:text="Decline" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/acceptcell"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_call_receive" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="top|center_horizontal"
+                    android:minHeight="25dp"
+                    android:text="Accept" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/messageLay1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_call_message_yellow" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="top|center_horizontal"
+                    android:minHeight="25dp"
+                    android:text="Message" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
+

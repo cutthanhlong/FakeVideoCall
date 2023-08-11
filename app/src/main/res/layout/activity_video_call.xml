@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:miv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff000000"
+    android:keepScreenOn="true">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center">
+
+        <VideoView
+            android:id="@+id/videoview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vidvid"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center">
+
+        <SurfaceView
+            android:id="@+id/cameravideo1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/imagecall"
+                android:layout_width="fill_parent"
+                android:layout_height="210.0dip"
+                android:layout_marginBottom="80.0dip"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.vocsy.fakecall.adapter.MaskableFrameLayout
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    miv:mask="@drawable/person_image_card_mask"
+                    miv:porterduffxfermode="DST_IN">
+
+                    <ImageView
+                        android:id="@+id/personimage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/dragon" />
+
+                </com.vocsy.fakecall.adapter.MaskableFrameLayout>
+
+                <TextView
+                    android:id="@+id/nameofperson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="name"
+                    android:textColor="#ffffffff"
+                    android:textSize="20.0dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/numberofperson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="name"
+                    android:textColor="#ffffffff"
+                    android:textSize="20.0dip"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/camlineri"
+                android:layout_width="fill_parent"
+                android:layout_height="140.0dip"
+                android:layout_marginRight="12.0dip"
+                android:layout_marginBottom="12.0dip"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/camevv"
+                    android:layout_width="90.0dip"
+                    android:layout_height="140.0dip"
+                    android:background="#001a1818"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <SurfaceView
+                        android:id="@+id/cameravideo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/abovelayout"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                android:weightSum="2">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/canselliner"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="50dp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:weightSum="3">
+
+                <ImageView
+                    android:id="@+id/mutemicvideo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="15dp"
+                    android:src="@drawable/ic_vidcall_mike_on" />
+
+                <ImageView
+                    android:id="@+id/endcallvideo"
+                    android:layout_width="0.0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_vidcall_end_call" />
+
+                <ImageView
+                    android:id="@+id/mutevideocall"
+                    android:layout_width="0.0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="15dp"
+                    android:src="@drawable/ic_vidcall_video_on" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rependliner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50.0dip"
+                android:gravity="center"
+                android:visibility="visible"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/refcall"
+                        android:layout_width="60.0dip"
+                        android:layout_height="60.0dip"
+                        android:background="@drawable/ic_call_cut" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Lineraccep"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/acceptcell"
+                        android:layout_width="60.0dip"
+                        android:layout_height="60.0dip"
+                        android:background="@drawable/ic_call_receive" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

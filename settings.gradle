@@ -1,0 +1,17 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        maven { url "https://raw.github.com/doreai/Framework/master" }
+//        maven { url "https://chaquo.com/maven" }
+    }
+}
+
+rootProject.name = "CC - Fake Call"
+
+include ':app'
+include ':cc_ads'
+include ':recorddialog'
+include ':chatbar'

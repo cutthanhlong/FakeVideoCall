@@ -1,0 +1,30 @@
+apply plugin: 'android-library'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 30
+    }
+
+    sourceSets {
+        main {
+            manifest {
+                srcFile "main/AndroidManifest.xml"
+            }
+            java {
+                srcDir "main/src"
+            }
+            res {
+                srcDir "main/res"
+            }
+        }
+    }
+}
+
+task jar(type: Jar) {
+    baseName "MaskedImageView"
+    from fileTree(dir: "build/intermediates/classes/release")
+}

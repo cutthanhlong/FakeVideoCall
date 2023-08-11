@@ -1,0 +1,3 @@
+nl.ansuz.android.maskedimageview
+attr mask
+styleable MaskedImageView mask

@@ -1,0 +1,5 @@
+nl/ansuz/android/maskedimageview/BuildConfig.java
+ nl.ansuz.android.maskedimageview.BuildConfig
+nl/ansuz/android/maskedimageview/widget/MaskedImageView.java
+ nl.ansuz.android.maskedimageview.widget.MaskedImageView
+ nl.ansuz.android.maskedimageview.widget.MaskedImageView$1

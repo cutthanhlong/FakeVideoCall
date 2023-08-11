@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SoundLevelButton">
+        <attr name="minRadius" format="dimension" />
+        <attr name="maxRadius" format="dimension" />
+        <attr name="circleCenterX" format="dimension" />
+        <attr name="circleCenterY" format="dimension" />
+        <attr name="centerColor" format="color" />
+        <attr name="haloColor" format="color" />
+        <attr name="state_listening" format="boolean" />
+        <attr name="state_waiting" format="boolean" />
+        <attr name="state_speaking" format="boolean" />
+        <attr name="state_initializing_tts" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="MaskableLayout">
+        <attr name="mask" format="reference"/>
+        <attr name="porterduffxfermode">
+            <enum name="ADD" value="0"/>
+            <enum name="CLEAR" value="1"/>
+            <enum name="DARKEN" value="2"/>
+            <enum name="DST" value="3"/>
+            <enum name="DST_ATOP" value="4"/>
+            <enum name="DST_IN" value="5"/>
+            <enum name="DST_OUT" value="6"/>
+            <enum name="DST_OVER" value="7"/>
+            <enum name="LIGHTEN" value="8"/>
+            <enum name="MULTIPLY" value="9"/>
+            <enum name="OVERLAY" value="10"/>
+            <enum name="SCREEN" value="11"/>
+            <enum name="SRC" value="12"/>
+            <enum name="SRC_ATOP" value="13"/>
+            <enum name="SRC_IN" value="14"/>
+            <enum name="SRC_OUT" value="15"/>
+            <enum name="SRC_OVER" value="16"/>
+            <enum name="XOR" value="17"/>
+        </attr>
+        <attr name="anti_aliasing" format="boolean"/>
+    </declare-styleable>
+</resources>

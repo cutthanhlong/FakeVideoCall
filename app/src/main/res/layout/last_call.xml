@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff000000">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <VideoView
+            android:id="@+id/videoview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/video_call_bottom_gradieant" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/camevv"
+                android:layout_width="90.0dip"
+                android:layout_height="155.0dip"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="#001a1818"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <com.jcminarro.roundkornerlayout.RoundKornerLinearLayout
+                    android:layout_width="90dp"
+                    android:layout_height="140dp"
+                    android:background="@color/black"
+                    app:corner_radius="10dp">
+
+                    <SurfaceView
+                        android:id="@+id/cameravideo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
+
+                <ImageView
+                    android:id="@+id/rotate_camera"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_rotation"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/canselliner"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="50dp"
+                android:gravity="center"
+                android:visibility="visible"
+                android:weightSum="3">
+
+                <ImageView
+                    android:id="@+id/mutemicvideo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="15dp"
+                    android:src="@drawable/ic_vidcall_mike_on" />
+
+                <ImageView
+                    android:id="@+id/endcallvideo"
+                    android:layout_width="0.0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_vidcall_end_call" />
+
+                <ImageView
+                    android:id="@+id/mutevideocall"
+                    android:layout_width="0.0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="15dp"
+                    android:src="@drawable/ic_vidcall_video_on" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

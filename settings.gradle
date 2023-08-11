@@ -12,6 +12,5 @@ dependencyResolutionManagement {
 rootProject.name = "CC - Fake Call"
 
 include ':app'
-include ':cc_ads'
 include ':recorddialog'
 include ':chatbar'

@@ -74,12 +74,6 @@
         </provider>
 
         <activity
-            android:name="com.vocsy.fakecall.myBilling.MyBilling"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            tools:replace="android:exported" />
-
-        <activity
             android:name="com.vocsy.fakecall.newFakeCall.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">

@@ -1,13 +1,5 @@
 package com.vocsy.fakecall.ui;
 
-import ai.api.AIDataService;
-import ai.api.AIListener;
-import ai.api.AIServiceContext;
-import ai.api.model.AIError;
-import ai.api.model.AIResponse;
-import ai.api.model.Result;
-import vocsy.ads.GoogleAds;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,13 +14,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.appcompat.app.AlertDialog.Builder;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -44,6 +29,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog.Builder;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.api.gax.core.FixedCredentialsProvider;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.auth.oauth2.ServiceAccountCredentials;
@@ -60,6 +53,7 @@ import com.vocsy.fakecall.RequestJavaV2Task;
 import com.vocsy.fakecall.UserModel;
 import com.vocsy.fakecall.newFakeCall.UserDatabase;
 
+import org.lunainc.chatbar.ViewChatBar;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -69,7 +63,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.lunainc.chatbar.ViewChatBar;
+import ai.api.AIDataService;
+import ai.api.AIListener;
+import ai.api.AIServiceContext;
+import ai.api.model.AIError;
+import ai.api.model.AIResponse;
+import ai.api.model.Result;
 
 public class ChatActivity extends AppCompatActivity implements AIListener {
     RelativeLayout addBtn;
@@ -97,7 +96,7 @@ public class ChatActivity extends AppCompatActivity implements AIListener {
     // Java V2
     private SessionsClient sessionsClient;
     private SessionName session;
-    int selectedPos=0;
+    int selectedPos = 0;
     TextView title;
     ImageView icontoolbar;
     List<UserModel> userModels;
@@ -135,11 +134,9 @@ public class ChatActivity extends AppCompatActivity implements AIListener {
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.fake_chat_activity);
 
-        bannerAds();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        backBT=findViewById(R.id.backBT);
+        backBT = findViewById(R.id.backBT);
 
         backBT.setOnClickListener(new OnClickListener() {
             @Override
@@ -148,15 +145,15 @@ public class ChatActivity extends AppCompatActivity implements AIListener {
             }
         });
 
-        database=new UserDatabase(this);
-        userModels=database.retriveData();
-        if (getIntent().getStringExtra("userId")!=null){
-            selectedPos=Integer.parseInt(String.valueOf(getIntent().getStringExtra("userId")));
-            Log.e("TAG", "onCreate: position "+selectedPos );
+        database = new UserDatabase(this);
+        userModels = database.retriveData();
+        if (getIntent().getStringExtra("userId") != null) {
+            selectedPos = Integer.parseInt(String.valueOf(getIntent().getStringExtra("userId")));
+            Log.e("TAG", "onCreate: position " + selectedPos);
         }
 
-        title=findViewById(R.id.title);
-        icontoolbar=findViewById(R.id.icontoolbar);
+        title = findViewById(R.id.title);
+        icontoolbar = findViewById(R.id.icontoolbar);
 
         try {
             if (userModels.get(selectedPos).getType().equals("Asset")) {
@@ -168,7 +165,6 @@ public class ChatActivity extends AppCompatActivity implements AIListener {
             Log.e("exceptoin", "" + e.getMessage());
         }
         title.setText(userModels.get(selectedPos).getName());
-
 
 
         ActivityCompat.requestPermissions(this, new String[]{"android.permission.RECORD_AUDIO"}, 1);
@@ -196,16 +192,16 @@ public class ChatActivity extends AppCompatActivity implements AIListener {
         ((Button) findViewById(R.id.ccallvid)).setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
-                Intent intent=new Intent(ChatActivity.this, VideoCallActivity.class);
-                intent.putExtra("DEFULT","YES");
+                Intent intent = new Intent(ChatActivity.this, VideoCallActivity.class);
+                intent.putExtra("DEFULT", "YES");
                 startActivity(intent);
             }
         });
         this.ccall.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
-                Intent intent=new Intent(ChatActivity.this, AudioCallActivity.class);
-                intent.putExtra("DEFULT","YES");
+                Intent intent = new Intent(ChatActivity.this, AudioCallActivity.class);
+                intent.putExtra("DEFULT", "YES");
                 startActivity(intent);
 
             }
@@ -271,10 +267,6 @@ public class ChatActivity extends AppCompatActivity implements AIListener {
         this.recyclerView.setAdapter(this.rcadapter);
     }
 
-    private void bannerAds() {
-        GoogleAds.getInstance().admobBanner(this, findViewById(R.id.banner_adview));
-    }
-
     public void ImageViewAnimatedChange(Context c, final ImageView v, final Bitmap new_image) {
         Animation anim_out = AnimationUtils.loadAnimation(c, R.anim.zoom_out);
         final Animation anim_in = AnimationUtils.loadAnimation(c, R.anim.zoom_in);
@@ -302,8 +294,6 @@ public class ChatActivity extends AppCompatActivity implements AIListener {
         });
         v.startAnimation(anim_out);
     }
-
-
 
 
     public void callbackV2(DetectIntentResponse response) {
@@ -353,7 +343,6 @@ public class ChatActivity extends AppCompatActivity implements AIListener {
 
     public void onListeningFinished() {
     }
-
 
 
     public Bitmap getBitmapFromAsset(String path) {

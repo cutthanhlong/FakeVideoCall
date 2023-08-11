@@ -20,8 +20,6 @@ import com.vocsy.fakecall.R;
 
 import java.util.Objects;
 
-import vocsy.ads.AppUtil;
-
 public class SettingActivity extends AppCompatActivity {
 
     private SwitchCompat premiumSwitch, vibrationSwitch;
@@ -31,16 +29,8 @@ public class SettingActivity extends AppCompatActivity {
     private MyPreferences preferences;
     private Dialog dialog;
     private RelativeLayout autoCutLay;
-    private RelativeLayout share_app;
-    private RelativeLayout rate_app;
-    private RelativeLayout more_app;
-    private RelativeLayout privacy_policy;
 
     private void bindView() {
-        share_app = findViewById(R.id.share_app);
-        rate_app = findViewById(R.id.rate_app);
-        more_app = findViewById(R.id.more_app);
-        privacy_policy = findViewById(R.id.privacy_policy);
         vibrationSwitch = findViewById(R.id.vibrationSwitch);
         premiumSwitch = findViewById(R.id.premiumSwitch);
         back = findViewById(R.id.back);
@@ -61,10 +51,6 @@ public class SettingActivity extends AppCompatActivity {
 
         handleSwitch();
 
-        share_app.setOnClickListener(view -> AppUtil.shareApp(this));
-        rate_app.setOnClickListener(view -> AppUtil.rateApp(this));
-        more_app.setOnClickListener(view -> AppUtil.moreApp(this, getString(R.string.developer_ID)));
-        privacy_policy.setOnClickListener(view -> AppUtil.privacyPolicy(this, getString(R.string.privacy_policy)));
     }
 
     private void handleSwitch() {
@@ -87,9 +73,7 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     private void showToast(String text) {
-        Toast.makeText(SettingActivity.this,
-                text
-                , Toast.LENGTH_SHORT).show();
+        Toast.makeText(SettingActivity.this, text, Toast.LENGTH_SHORT).show();
     }
 
     private void handleVibrationText(boolean value) {
@@ -148,7 +132,6 @@ public class SettingActivity extends AppCompatActivity {
 
         if (!dialog.isShowing() && !isFinishing()) {
             dialog.show();
-//            dialog.getWindow().setAttributes(lp);
         }
     }
 

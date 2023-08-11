@@ -21,10 +21,6 @@ import com.vocsy.fakecall.newFakeCall.MainActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import vocsy.ads.AdsHandler;
-import vocsy.ads.GoogleNativeAdAdapter;
-
-
 
 public class HistoryFragment extends Fragment {
 
@@ -43,8 +39,7 @@ public class HistoryFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_history, container, false);
         return view;
@@ -68,12 +63,7 @@ public class HistoryFragment extends Fragment {
         historyModels = helper.retriveData();
         HistoryAdapter adapter = new HistoryAdapter(getContext(), historyModels);
 
-        if (AdsHandler.isAdsOn()) {
-            GoogleNativeAdAdapter adAdapter = GoogleNativeAdAdapter.Builder.with(getActivity(), getString(R.string.admob_native_id), adapter).adItemInterval(3).build();
-            historyRecyclerView.setAdapter(adAdapter);
-        }else {
-            historyRecyclerView.setAdapter(adapter);
-        }
+        historyRecyclerView.setAdapter(adapter);
 
         historyTextMethod();
 

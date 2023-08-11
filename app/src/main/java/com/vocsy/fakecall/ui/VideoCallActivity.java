@@ -46,7 +46,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import vocsy.ads.GoogleAds;
 
 public class VideoCallActivity extends AppCompatActivity implements Callback {
 
@@ -260,21 +259,17 @@ public class VideoCallActivity extends AppCompatActivity implements Callback {
                     Globals.stopVibrate();
                 }
 
-                GoogleAds.getInstance().showCounterInterstitialAd(VideoCallActivity.this, () -> {
-                    mMediaPlayer.stop();
-                    mMediaPlayer2.stop();
-                    addHistory(0);
-                    finish();
-                });
+                mMediaPlayer.stop();
+                mMediaPlayer2.stop();
+                addHistory(0);
+                finish();
             }
         });
         endcallvideo.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                GoogleAds.getInstance().showCounterInterstitialAd(VideoCallActivity.this, () -> {
-                    videoview.stopPlayback();
-                    videoview.pause();
-                    finish();
-                });
+                videoview.stopPlayback();
+                videoview.pause();
+                finish();
             }
         });
         mutevideocall.setOnClickListener(new OnClickListener() {

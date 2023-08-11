@@ -48,12 +48,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import vocsy.ads.GoogleAds;
 
 public class AudioCallActivity extends AppCompatActivity {
     public Chronometer chronometer;
     public CountDownTimer yourCountDownTimer2;
-    LinearLayout L;
+    LinearLayout Lineraccep;
     LinearLayout accepte;
     MediaPlayer mMediaPlayer = new MediaPlayer();
     MediaPlayer mMediaPlayer2 = new MediaPlayer();
@@ -74,8 +73,7 @@ public class AudioCallActivity extends AppCompatActivity {
     private static Handler handler = new Handler();
     private static Runnable runnable;
 
-    public static int calculateInSampleSize(
-            BitmapFactory.Options options, int reqWidth, int reqHeight) {
+    public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // Raw height and width of image
         final int height = options.outHeight;
         final int width = options.outWidth;
@@ -85,16 +83,14 @@ public class AudioCallActivity extends AppCompatActivity {
             final int halfWidth = width / 2;
             // Calculate the largest inSampleSize value that is a power of 2 and keeps both
             // height and width larger than the requested height and width.
-            while ((halfHeight / inSampleSize) >= reqHeight
-                    && (halfWidth / inSampleSize) >= reqWidth) {
+            while ((halfHeight / inSampleSize) >= reqHeight && (halfWidth / inSampleSize) >= reqWidth) {
                 inSampleSize *= 2;
             }
         }
         return inSampleSize;
     }
 
-    public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
-                                                         int reqWidth, int reqHeight) {
+    public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId, int reqWidth, int reqHeight) {
         // First decode with inJustDecodeBounds=true to check dimensions
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
@@ -152,7 +148,7 @@ public class AudioCallActivity extends AppCompatActivity {
         return bitmap;
     }
 
-    @SuppressLint("WrongConstant")
+    @SuppressLint({"WrongConstant", "MissingInflatedId"})
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.voicecall_activity);
@@ -310,7 +306,7 @@ public class AudioCallActivity extends AppCompatActivity {
         this.accepte = (LinearLayout) findViewById(R.id.acceptcell);
         this.refcall = (LinearLayout) findViewById(R.id.refcall);
         this.messageLay1 = (LinearLayout) findViewById(R.id.messageLay1);
-        this.L = (LinearLayout) findViewById(R.id.Lineraccep);
+        this.Lineraccep = (LinearLayout) findViewById(R.id.Lineraccep);
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             public void run() {
                 AudioCallActivity.this.mMediaPlayer = MediaPlayer.create(AudioCallActivity.this, Settings.System.DEFAULT_RINGTONE_URI);
@@ -363,13 +359,11 @@ public class AudioCallActivity extends AppCompatActivity {
                     Globals.stopVibrate();
                 }
 
-                GoogleAds.getInstance().showCounterInterstitialAd(AudioCallActivity.this, () -> {
-                    yourCountDownTimer2.cancel();
-                    mMediaPlayer.stop();
-                    mMediaPlayer2.stop();
-                    addHistory(0);
-                    finish();
-                });
+                yourCountDownTimer2.cancel();
+                mMediaPlayer.stop();
+                mMediaPlayer2.stop();
+                addHistory(0);
+                finish();
 
             }
         });

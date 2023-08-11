@@ -14,22 +14,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 
 import com.android.billingclient.api.BillingClient;
-import com.android.billingclient.api.BillingClientStateListener;
-import com.android.billingclient.api.BillingResult;
-import com.android.billingclient.api.Purchase;
-import com.android.billingclient.api.PurchaseHistoryRecord;
-import com.android.billingclient.api.PurchaseHistoryResponseListener;
-import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.vocsy.fakecall.BuildConfig;
 import com.vocsy.fakecall.R;
 import com.vocsy.fakecall.UserModel;
-import com.vocsy.fakecall.myBilling.MyBilling;
 import com.vocsy.fakecall.newFakeCall.Fragments.ContactsBookFragment;
 import com.vocsy.fakecall.newFakeCall.Fragments.HistoryFragment;
 import com.vocsy.fakecall.permission.MyPermission;
@@ -39,8 +30,6 @@ import com.vocsy.fakecall.ui.SettingActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import vocsy.ads.AdsHandler;
-import vocsy.ads.GetSmartAdmob;
 
 public class MainActivity extends MyPermission implements myInterface, PermissionListener {
 
@@ -56,55 +45,6 @@ public class MainActivity extends MyPermission implements myInterface, Permissio
     private BillingClient billingClient;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
-
-
-    PurchasesUpdatedListener purchasesUpdatedListener = new PurchasesUpdatedListener() {
-        @Override
-        public void onPurchasesUpdated(@NonNull BillingResult billingResult, @Nullable List<Purchase> list) {
-            int responseCode = billingResult.getResponseCode();
-            if (responseCode == BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED) {
-                AdsHandler.setPurchase(true);
-                AdsHandler.setAdsOn(false);
-            } else {
-                AdsHandler.setPurchase(false);
-                AdsHandler.setAdsOn(true);
-            }
-        }
-    };
-
-
-    private void setUpBilling() {
-        billingClient = BillingClient.newBuilder(getApplicationContext())
-                .setListener(purchasesUpdatedListener)
-                .enablePendingPurchases()
-                .build();
-
-
-        billingClient.queryPurchaseHistoryAsync(BillingClient.SkuType.INAPP, new PurchaseHistoryResponseListener() {
-            @Override
-            public void onPurchaseHistoryResponse(@NonNull BillingResult billingResult, @Nullable List<PurchaseHistoryRecord> list) {
-                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-
-                }
-            }
-        });
-
-        billingClient.startConnection(new BillingClientStateListener() {
-            @Override
-            public void onBillingSetupFinished(BillingResult billingResult) {
-                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-
-                }
-            }
-
-            @Override
-            public void onBillingServiceDisconnected() {
-                if (billingClient != null) {
-                    billingClient.startConnection(this);
-                }
-            }
-        });
-    }
 
     public void add_default_person_data() {
         database.insertUSER(getString(R.string.name1), getString(R.string.phonenumber1), getString(R.string.profile1), getString(R.string.video1), "Asset", getString(R.string.email1), getString(R.string.voice1), "0", "both");
@@ -126,42 +66,15 @@ public class MainActivity extends MyPermission implements myInterface, Permissio
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AdsHandler.getInstance(this);
-        AdsHandler.isPurchaseModule = BuildConfig.useInAppPurchase;
-        AdsHandler.SKU_REMOVE_ADS = "remove_ads";
-
         setContentView(R.layout.activity_main);
-        init();
 
+        init();
 
         preferences = getSharedPreferences("AppPref", MODE_PRIVATE);
         editor = preferences.edit();
 
 
-        if (AdsHandler.isPurchaseModule) {
-            setUpBilling();
-            crown.setVisibility(View.VISIBLE);
-            crown.setOnClickListener(view -> {
-                startActivity(new Intent(this, MyBilling.class));
-            });
-        } else {
-            crown.setVisibility(View.GONE);
-            AdsHandler.setAdsOn(true);
-        }
-
-
-        // set ids in array...
-        String[] adsCommand = new String[]{
-                getString(R.string.admob_banner_id) // 1st banner id
-                , getString(R.string.admob_native_id) // 2st native id
-                , getString(R.string.admob_interstitial_id) // 3st interstitial id
-                , getString(R.string.admob_app_open_id) // 4st app-open id
-        };
-
-        // initialize ads
-        new GetSmartAdmob(this, adsCommand, (success) -> {
-        }).execute();
-
+        crown.setVisibility(View.GONE);
 
         database = new UserDatabase(getApplicationContext());
 

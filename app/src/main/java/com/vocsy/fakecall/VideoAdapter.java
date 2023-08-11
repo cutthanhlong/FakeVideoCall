@@ -45,7 +45,6 @@ import com.vocsy.fakecall.ui.AddPersonClickActivity;
 import com.vocsy.fakecall.ui.AudioCallActivity;
 import com.vocsy.fakecall.ui.ChatActivity;
 import com.vocsy.fakecall.ui.VideoCallActivity;
-import com.vocsy.fakecall.R;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -54,8 +53,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import vocsy.ads.GoogleAds;
-import vocsy.ads.GoogleNativeAdAdapter;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
     public static int selectedPerson = 0;
@@ -292,12 +289,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         ContactsBookFragment.historyRecyclerView.setLayoutManager(layoutManager);
         ContactsBookFragment.historyAdapter = new HistoryAdapter(mContext, ContactsBookFragment.historyModels);
 
-
-        GoogleNativeAdAdapter adAdapter = GoogleNativeAdAdapter.Builder.with(mContext, mContext.getString(R.string.admob_native_id), ContactsBookFragment.historyAdapter).adItemInterval(3).build();
-        ContactsBookFragment.historyRecyclerView.setAdapter(adAdapter);
-
-
-        // ContactsBookFragment.historyRecyclerView.setAdapter(ContactsBookFragment.historyAdapter);
+        ContactsBookFragment.historyRecyclerView.setAdapter(ContactsBookFragment.historyAdapter);
         setFilterData(userModels.get(i).getName());
 
         ContactsBookFragment.editContactIV.setOnClickListener(new View.OnClickListener() {
@@ -310,18 +302,15 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                     intent.putExtra("setMode", "editContact");
                     intent.putExtra("userId", i);
                     mContext.startActivity(intent);
-                    //finish();
                 }
             }
         });
         ContactsBookFragment.messageLay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GoogleAds.getInstance().showCounterInterstitialAd(mContext, () -> {
-                    Intent intent = new Intent(mContext, ChatActivity.class);
-                    intent.putExtra("userId", String.valueOf(i));
-                    mContext.startActivity(intent);
-                });
+                Intent intent = new Intent(mContext, ChatActivity.class);
+                intent.putExtra("userId", String.valueOf(i));
+                mContext.startActivity(intent);
             }
         });
     }
@@ -376,10 +365,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         }
 
         if (i == 0) {
-            ContactsBookFragment.pendingIntent = PendingIntent.getBroadcast(mContext, 0, new Intent(mContext, VideoReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE|PendingIntent.FLAG_IMMUTABLE);
+            ContactsBookFragment.pendingIntent = PendingIntent.getBroadcast(mContext, 0, new Intent(mContext, VideoReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_IMMUTABLE);
             Toast.makeText(mContext, "You will receive a video call at : " + ContactsBookFragment.delayTime + " Seconds", Toast.LENGTH_SHORT).show();
         } else {
-            ContactsBookFragment.pendingIntent = PendingIntent.getBroadcast(mContext, 0, new Intent(mContext, VoiceReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
+            ContactsBookFragment.pendingIntent = PendingIntent.getBroadcast(mContext, 0, new Intent(mContext, VoiceReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
             Toast.makeText(mContext, "You will receive a voice call at : " + ContactsBookFragment.delayTime + " Seconds", Toast.LENGTH_SHORT).show();
         }
         AlarmManager alarmManager = (AlarmManager) mContext.getSystemService(ALARM_SERVICE);

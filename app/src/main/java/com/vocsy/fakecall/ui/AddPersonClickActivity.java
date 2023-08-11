@@ -43,8 +43,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import vocsy.ads.GoogleAds;
-
 
 public class AddPersonClickActivity extends AppCompatActivity {
 
@@ -79,15 +77,6 @@ public class AddPersonClickActivity extends AppCompatActivity {
         userModels = new ArrayList<>();
         opendialog();
 
-        refreshAd();
-    }
-
-    /**
-     * Creates a request for a new native ad based on the boolean parameters and calls the
-     * corresponding "populate" method when one is successfully returned.
-     */
-    private void refreshAd() {
-        GoogleAds.getInstance().addNativeView(this, frameLayout);
     }
 
     public void opendialog() {
@@ -194,9 +183,7 @@ public class AddPersonClickActivity extends AppCompatActivity {
         selectaudioBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent videoIntent = new Intent(
-                        Intent.ACTION_PICK,
-                        MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
+                Intent videoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(Intent.createChooser(videoIntent, "Select Audio"), 2);
             }
         });
@@ -259,10 +246,7 @@ public class AddPersonClickActivity extends AppCompatActivity {
                 }
                 ContactsBookFragment.mVoiceAdapter.notifyDataSetChanged();
 
-                GoogleAds.getInstance().showCounterInterstitialAd(AddPersonClickActivity.this, ()->{
-                    onBackPressed();
-                });
-
+                onBackPressed();
             }
         });
 

@@ -29,8 +29,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import vocsy.ads.GoogleAds;
-
 public class FinalVideoCallActivity extends AppCompatActivity implements SurfaceHolder.Callback {
 
     private static int aux = 0;

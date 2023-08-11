@@ -59,10 +59,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import vocsy.ads.AdsHandler;
-import vocsy.ads.GoogleAds;
-import vocsy.ads.GoogleNativeAdAdapter;
-
 public class ContactsBookFragment extends Fragment {
 
     public RecyclerView mRecyclerView;
@@ -102,12 +98,11 @@ public class ContactsBookFragment extends Fragment {
     List<UserModel> favouriteUserModels = new ArrayList<>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_contacts_book, container, false);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -123,18 +118,14 @@ public class ContactsBookFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                GoogleAds.getInstance().showCounterInterstitialAd(getActivity(), () -> {
-                    startActivity(new Intent(getContext(), AddPersonClickActivity.class));
-                    getActivity().finish();
-                });
-
-
+                startActivity(new Intent(getContext(), AddPersonClickActivity.class));
+                getActivity().finish();
             }
         });
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.classification_select);
 
-        if (MainActivity.favouriteOrNot == true) {
+        if (MainActivity.favouriteOrNot) {
             for (int i = 0; i < userModels.size(); i++) {
                 if (userModels.get(i).getFavourite().matches("1")) {
 
@@ -163,22 +154,14 @@ public class ContactsBookFragment extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
-
-        if (AdsHandler.isAdsOn()) {
-            GoogleNativeAdAdapter adAdapter = GoogleNativeAdAdapter.Builder.with(getActivity(), getString(R.string.admob_native_id), mVoiceAdapter).adItemInterval(3).build();
-            mRecyclerView.setAdapter(adAdapter);
-        } else {
-            mRecyclerView.setAdapter(mVoiceAdapter);
-        }
-
+        mRecyclerView.setAdapter(mVoiceAdapter);
 
         // mRecyclerView.setAdapter(mVoiceAdapter);
 
         activityCode();
 
         // history condition
-        if (HistoryAdapter.historySelectDetail == true) {
+        if (HistoryAdapter.historySelectDetail) {
             clickMethod(VideoAdapter.selectedPerson);
             coordinatorLayout.setBackgroundColor(Color.parseColor("#4D000000"));
             coordinatorLayout.setVisibility(View.VISIBLE);
@@ -187,7 +170,7 @@ public class ContactsBookFragment extends Fragment {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
     public void activityCode() {
 
         historyRecyclerView = bottomSheet.findViewById(R.id.historyRecyclerView);
@@ -219,7 +202,7 @@ public class ContactsBookFragment extends Fragment {
         behavior.setHideable(true);
         behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 coordinatorLayout.setBackgroundColor(Color.parseColor("#4D000000"));
@@ -299,10 +282,10 @@ public class ContactsBookFragment extends Fragment {
         }
 
         if (i == 0) {
-            pendingIntent = PendingIntent.getBroadcast(getContext(), 0, new Intent(getContext(), VideoReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
+            pendingIntent = PendingIntent.getBroadcast(getContext(), 0, new Intent(getContext(), VideoReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
             Toast.makeText(getContext(), "You will receive a video call at : " + delayTime + " Seconds", Toast.LENGTH_SHORT).show();
         } else {
-            pendingIntent = PendingIntent.getBroadcast(getContext(), 0, new Intent(getContext(), VoiceReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
+            pendingIntent = PendingIntent.getBroadcast(getContext(), 0, new Intent(getContext(), VoiceReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
             Toast.makeText(getContext(), "You will receive a voice call at : " + delayTime + " Seconds", Toast.LENGTH_SHORT).show();
         }
         AlarmManager alarmManager = (AlarmManager) getContext().getSystemService(ALARM_SERVICE);
@@ -366,7 +349,7 @@ public class ContactsBookFragment extends Fragment {
         return bitmap;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
     private void clickMethod(int i) {
 
         if (ContactsBookFragment.singleUserPosition < 6) {
@@ -475,15 +458,10 @@ public class ContactsBookFragment extends Fragment {
         ContactsBookFragment.historyRecyclerView.setLayoutManager(layoutManager);
         ContactsBookFragment.historyAdapter = new HistoryAdapter(getActivity(), ContactsBookFragment.historyModels);
 
-        if (AdsHandler.isAdsOn()) {
-            GoogleNativeAdAdapter adAdapter = GoogleNativeAdAdapter.Builder.with(getActivity(), getString(R.string.admob_native_id), ContactsBookFragment.historyAdapter).adItemInterval(3).build();
-            ContactsBookFragment.historyRecyclerView.setAdapter(adAdapter);
-        } else {
-            ContactsBookFragment.historyRecyclerView.setAdapter(ContactsBookFragment.historyAdapter);
-        }
+
+        ContactsBookFragment.historyRecyclerView.setAdapter(ContactsBookFragment.historyAdapter);
 
 
-        //ContactsBookFragment.historyRecyclerView.setAdapter(ContactsBookFragment.historyAdapter);
         setFilterData(userModels.get(i).getName());
 
         ContactsBookFragment.editContactIV.setOnClickListener(new View.OnClickListener() {
@@ -504,12 +482,9 @@ public class ContactsBookFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                GoogleAds.getInstance().showCounterInterstitialAd(getActivity(), () -> {
-                    Intent intent = new Intent(getActivity(), ChatActivity.class);
-                    intent.putExtra("userId", String.valueOf(i));
-                    getActivity().startActivity(intent);
-                });
-
+                Intent intent = new Intent(getActivity(), ChatActivity.class);
+                intent.putExtra("userId", String.valueOf(i));
+                getActivity().startActivity(intent);
             }
         });
 

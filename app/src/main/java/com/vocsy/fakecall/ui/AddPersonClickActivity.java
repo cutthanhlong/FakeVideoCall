@@ -30,7 +30,6 @@ import com.vocsy.fakecall.Globals;
 import com.vocsy.fakecall.ImageUtils;
 import com.vocsy.fakecall.R;
 import com.vocsy.fakecall.UserModel;
-import com.vocsy.fakecall.newFakeCall.Fragments.ContactsBookFragment;
 import com.vocsy.fakecall.newFakeCall.MainActivity;
 import com.vocsy.fakecall.newFakeCall.UserDatabase;
 

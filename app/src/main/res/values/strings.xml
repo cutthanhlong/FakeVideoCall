@@ -6,42 +6,14 @@
 
     <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
 
-    <string name="admob_banner_id">/6499/example/banner</string>
-    <string name="admob_native_id">/6499/example/native</string>
-    <string name="admob_interstitial_id">/6499/example/interstitial</string>
-    <string name="admob_app_open_id">/6499/example/app-open</string>
-
-    <string name="sku">remove_ads</string>
-    <string name="license_key">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhIhaCffNji083RnGa43zP3dLsKwI+2IT/go6Bm5rKIclnHBam5+BrYuYEVkH35Y4WLpG7gJ2MNhTa8Etdi5ElTiLyWK8zIcqRlsEb7mpe59hktF/0FOQDIj5kJuI3siUo4Ko188w0u2WewNsBwXJwtsGrjkd+n7+eARExLSrnjhmZpRVqWp7bU9GrIXqejgEVUT0ilK2ZHvdGztcB6YQ6WL5MOsULg7CQOrm4WFitbLElJQ42Wo8cKj8R5In5AS24l83jyRQlDCdhxvg+g4lE0ZpXlKrzl7O70zv716S3ZkzV4yijmeKeMA2c8FclbMyUY4mZLYzcW/6pPBtm8En1QIDAQAB</string>
-
     <!--  privacy policy link -->
-    <string name="privacy_policy">https://www.google.com/</string>
     <!--  developer id for more app button -->
-    <string name="developer_ID">mcForge+Guys</string>
-    <string name="share_app_msg">Let me recommend you this application</string>
 
 
-    <string name="call">Call</string>
     <string name="default_aidialog_title">Speak</string>
-    <string name="rate_app">Rate App</string>
-    <string name="select_at_last_one_minute">Pales Select At Last One Minute</string>
-    <string name="share_app">Share App</string>
-
-    <string name="start_chat">Start Chat</string>
-    <string name="video_call">Video Call</string>
 
     <string name="Setting">Setting</string>
     <string name="Done">Done</string>
-    <string name="response">Thank you for Your Response</string>
-    <string name="email_app_not_installed">Please install Email App....</string>
-    <string name="email">vocsydeveloper@gmail.com</string>
-
-    <string name="ad_attribution">Ad</string>
-    <string name="response1">Sorry for not meeting your expectations .</string>
-    <string name="response3">Thank you!</string>
-    <string name="response2">We will try to improve</string>
-    <string name="custom">Create New</string>
-    <string name="clearall">Clear All</string>
 
     <!--    Add person details here       -->
     <string name="name1">Shaad Meeg</string>
@@ -88,7 +60,6 @@
 
     <string name="action_settings">Settings</string>
     <string name="select_picture">Select Picture</string>
-    <string name="contact">Contact</string>
     <string name="call_setting">Call Setting</string>
     <string name="set_time">Set Time:</string>
     <string name="enter_second_1_to_120">Enter second: (30 to 120)</string>
@@ -101,7 +72,6 @@
     <string name="vib_2">when incoming any call</string>
     <string name="vib_on">Vibration is ON</string>
     <string name="vib_off">Vibration is OFF</string>
-    <string name="app">App</string>
 
 
 </resources>

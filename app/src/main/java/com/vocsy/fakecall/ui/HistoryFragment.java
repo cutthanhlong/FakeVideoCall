@@ -1,4 +1,4 @@
-package com.vocsy.fakecall.newFakeCall.Fragments;
+package com.vocsy.fakecall.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

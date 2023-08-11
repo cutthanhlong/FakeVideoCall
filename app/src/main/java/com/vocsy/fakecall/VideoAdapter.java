@@ -34,7 +34,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.vocsy.fakecall.newFakeCall.CallHistoryHelper;
-import com.vocsy.fakecall.newFakeCall.Fragments.ContactsBookFragment;
+import com.vocsy.fakecall.ui.ContactsBookFragment;
 import com.vocsy.fakecall.newFakeCall.HistoryAdapter;
 import com.vocsy.fakecall.newFakeCall.HistoryModels;
 import com.vocsy.fakecall.newFakeCall.MainActivity;

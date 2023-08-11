@@ -49,9 +49,6 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:theme"
         tools:targetApi="Q">
-        <activity
-            android:name="com.vocsy.fakecall.ui.SplashActivity"
-            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

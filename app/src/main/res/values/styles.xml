@@ -11,27 +11,6 @@
         <item name="android:windowActivityTransitions" tools:targetApi="lollipop">true</item>
     </style>
 
-    <style name="ThemeActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid">
-        <item name="android:background">@null</item>
-        <!-- Support library compatibility -->
-        <item name="background">@null</item>
-        <item name="android:displayOptions">showHome|useLogo</item>
-        <item name="displayOptions">showHome|useLogo</item>
-    </style>
-
-
-    <style name="AppThemeHome" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/green_light</item>
-        <item name="colorPrimaryDark">@android:color/transparent</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowActionBarOverlay">true</item>
-        <item name="actionBarStyle">@style/ThemeActionBar</item>
-        <item name="windowActionBarOverlay">true</item>
-        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
-        <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">true</item>
-
-    </style>
 
     <declare-styleable name="MaskedColorView">
         <attr name="mainColor" format="color|reference"/>
@@ -61,46 +40,6 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:windowSoftInputMode">adjustPan</item>
-    </style>
-
-    <style name="SplashTheme2" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/splashimg</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <!--<item name="android:windowBackground">@drawable/popup_background</item>-->
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-    </style>
-
-    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
-        <!-- Customize color of navigation drawer icon and back arrow -->
-        <item name="colorControlNormal">@color/white</item>
-    </style>
-
-    <style name="AppTheme.AdAttribution" parent="@style/AppTheme">
-        <item name="android:textSize">12.0sp</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:layout_gravity">left</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:text">@string/ad_attribution</item>
-        <item name="height">15.0dip</item>
-        <item name="android:width">16.0dip</item>
     </style>
 
 </resources>

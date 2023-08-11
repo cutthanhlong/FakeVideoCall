@@ -25,7 +25,7 @@ import com.vocsy.fakecall.ui.VideoCallActivity;
 import com.vocsy.fakecall.R;
 import com.vocsy.fakecall.UserModel;
 import com.vocsy.fakecall.VideoAdapter;
-import com.vocsy.fakecall.newFakeCall.Fragments.HistoryFragment;
+import com.vocsy.fakecall.ui.HistoryFragment;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -39,7 +39,6 @@ import com.vocsy.fakecall.R;
 import com.vocsy.fakecall.UserModel;
 import com.vocsy.fakecall.VideoAdapter;
 import com.vocsy.fakecall.newFakeCall.CallHistoryHelper;
-import com.vocsy.fakecall.newFakeCall.Fragments.ContactsBookFragment;
 import com.vocsy.fakecall.newFakeCall.UserDatabase;
 
 import java.io.IOException;

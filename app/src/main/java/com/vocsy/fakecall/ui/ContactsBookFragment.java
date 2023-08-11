@@ -1,4 +1,4 @@
-package com.vocsy.fakecall.newFakeCall.Fragments;
+package com.vocsy.fakecall.ui;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -46,10 +46,6 @@ import com.vocsy.fakecall.newFakeCall.MainActivity;
 import com.vocsy.fakecall.newFakeCall.UserDatabase;
 import com.vocsy.fakecall.receiver.VideoReceiver;
 import com.vocsy.fakecall.receiver.VoiceReceiver;
-import com.vocsy.fakecall.ui.AddPersonClickActivity;
-import com.vocsy.fakecall.ui.AudioCallActivity;
-import com.vocsy.fakecall.ui.ChatActivity;
-import com.vocsy.fakecall.ui.VideoCallActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -123,7 +119,7 @@ public class ContactsBookFragment extends Fragment {
             }
         });
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.classification_select);
+        mRecyclerView = view.findViewById(R.id.classification_select);
 
         if (MainActivity.favouriteOrNot) {
             for (int i = 0; i < userModels.size(); i++) {
@@ -209,14 +205,10 @@ public class ContactsBookFragment extends Fragment {
                 coordinatorLayout.setVisibility(View.VISIBLE);
                 myClick();
                 Log.e("TAG", "onStateChanged: " + newState);
-                switch (newState) {
-                    case BottomSheetBehavior.STATE_HIDDEN:
-                        coordinatorLayout.setVisibility(View.GONE);
-                        coordinatorLayout.setOnClickListener(null);
-                        coordinatorLayout.setBackgroundColor(Color.parseColor("#00000000"));
-                        break;
-                    default:
-                        break;
+                if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+                    coordinatorLayout.setVisibility(View.GONE);
+                    coordinatorLayout.setOnClickListener(null);
+                    coordinatorLayout.setBackgroundColor(Color.parseColor("#00000000"));
                 }
 
             }
@@ -253,8 +245,6 @@ public class ContactsBookFragment extends Fragment {
         return bitmap;
     }
 
-    //          old activity methods
-
     public void checkPermissions() {
         List<String> missingPermissions = new ArrayList();
         for (String permission : REQUIRED_SDK_PERMISSIONS) {
@@ -268,7 +258,7 @@ public class ContactsBookFragment extends Fragment {
             onRequestPermissionsResult(1, REQUIRED_SDK_PERMISSIONS, grantResults);
             return;
         }
-        ActivityCompat.requestPermissions(getActivity(), (String[]) missingPermissions.toArray(new String[missingPermissions.size()]), 1);
+        ActivityCompat.requestPermissions(getActivity(), missingPermissions.toArray(new String[missingPermissions.size()]), 1);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -292,11 +282,9 @@ public class ContactsBookFragment extends Fragment {
 
         Log.e("TAG", "callVidOrVoiceAlarm: " + 1000 * delayTime);
         if (Build.VERSION.SDK_INT >= 23) {
-            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (1000 * delayTime), pendingIntent);
-        } else if (Build.VERSION.SDK_INT >= 19) {
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (1000 * delayTime), pendingIntent);
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (1000L * delayTime), pendingIntent);
         } else {
-            alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (1000 * delayTime), pendingIntent);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (1000L * delayTime), pendingIntent);
         }
 
     }
@@ -313,18 +301,13 @@ public class ContactsBookFragment extends Fragment {
     }
 
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case 1:
-                for (int index = permissions.length - 1; index >= 0; index--) {
-                    if (grantResults[index] != 0) {
-                        Toast.makeText(getContext(), "Required permission 'CAMERA' ", Toast.LENGTH_LONG).show();
-                        //finish();
-                        return;
-                    }
-                }
+
+        for (int index = permissions.length - 1; index >= 0; index--) {
+            if (grantResults[index] != 0) {
+                Toast.makeText(getContext(), "Required permission 'CAMERA' ", Toast.LENGTH_LONG).show();
+                //finish();
                 return;
-            default:
-                return;
+            }
         }
     }
 
@@ -351,10 +334,6 @@ public class ContactsBookFragment extends Fragment {
 
 
     private void clickMethod(int i) {
-
-        if (ContactsBookFragment.singleUserPosition < 6) {
-            //ContactsBookFragment.editContactIV.setVisibility(View.GONE);
-        }
 
         ContactsBookFragment.favouriteIV = ContactsBookFragment.bottomSheet.findViewById(R.id.favouriteIV);
         if (userModels.get(i).getFavourite().matches("0")) {
@@ -393,14 +372,14 @@ public class ContactsBookFragment extends Fragment {
         ContactsBookFragment.personName.setText(userModels.get(i).getName());
         ContactsBookFragment.numberofperson.setText(userModels.get(i).getPhonenumber());
 
-        ((LinearLayout) ContactsBookFragment.bottomSheet.findViewById(R.id.personVidCallLay)).setOnClickListener(new View.OnClickListener() {
+        ContactsBookFragment.bottomSheet.findViewById(R.id.personVidCallLay).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 getActivity().startActivity(new Intent(getActivity(), VideoCallActivity.class));
 
             }
         });
 
-        ((LinearLayout) ContactsBookFragment.bottomSheet.findViewById(R.id.personCallLay)).setOnClickListener(new View.OnClickListener() {
+        ContactsBookFragment.bottomSheet.findViewById(R.id.personCallLay).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 getActivity().startActivity(new Intent(getActivity(), AudioCallActivity.class));
 

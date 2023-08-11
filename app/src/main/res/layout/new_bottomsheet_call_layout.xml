@@ -157,28 +157,7 @@
                     android:gravity="center"
                     />
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/messageLay"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                >
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_message"
-                    android:layout_weight="1"
-                    android:padding="10dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Message"
-                    android:textSize="13dp"
-                    android:layout_weight="4"
-                    android:gravity="center"
-                    />
-            </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/TimerLay"
                 android:layout_width="0dp"

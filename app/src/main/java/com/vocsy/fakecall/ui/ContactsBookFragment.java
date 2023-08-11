@@ -89,7 +89,6 @@ public class ContactsBookFragment extends Fragment {
     public static CollapsingToolbarLayout toolBarLayout;
     public static int singleUserPosition = 0;
     public static LinearLayout editContactIV;
-    public static LinearLayout messageLay;
 
     List<UserModel> favouriteUserModels = new ArrayList<>();
 
@@ -176,7 +175,6 @@ public class ContactsBookFragment extends Fragment {
         personImage = bottomSheet.findViewById(R.id.personImage);
         numberofperson = bottomSheet.findViewById(R.id.personNumber);
         TimerLay = bottomSheet.findViewById(R.id.TimerLay);
-        messageLay = bottomSheet.findViewById(R.id.messageLay);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         historyRecyclerView.setLayoutManager(layoutManager);
@@ -455,15 +453,6 @@ public class ContactsBookFragment extends Fragment {
                     getActivity().startActivity(intent);
                     //finish();
                 }
-            }
-        });
-        ContactsBookFragment.messageLay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getActivity(), ChatActivity.class);
-                intent.putExtra("userId", String.valueOf(i));
-                getActivity().startActivity(intent);
             }
         });
 

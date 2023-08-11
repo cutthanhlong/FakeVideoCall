@@ -116,15 +116,6 @@
                 android:src="@drawable/ic_mike_on" />
 
             <ImageView
-                android:id="@+id/MessageBT"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="15dp"
-                android:src="@drawable/ic_call_message"
-                android:visibility="gone" />
-
-            <ImageView
                 android:id="@+id/vidCallBT"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

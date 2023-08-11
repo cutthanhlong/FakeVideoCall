@@ -43,7 +43,6 @@ import com.vocsy.fakecall.receiver.VideoReceiver;
 import com.vocsy.fakecall.receiver.VoiceReceiver;
 import com.vocsy.fakecall.ui.AddPersonClickActivity;
 import com.vocsy.fakecall.ui.AudioCallActivity;
-import com.vocsy.fakecall.ui.ChatActivity;
 import com.vocsy.fakecall.ui.VideoCallActivity;
 
 import java.io.File;
@@ -303,14 +302,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                     intent.putExtra("userId", i);
                     mContext.startActivity(intent);
                 }
-            }
-        });
-        ContactsBookFragment.messageLay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, ChatActivity.class);
-                intent.putExtra("userId", String.valueOf(i));
-                mContext.startActivity(intent);
             }
         });
     }

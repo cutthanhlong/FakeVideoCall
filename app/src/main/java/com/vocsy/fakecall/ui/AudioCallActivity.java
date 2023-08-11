@@ -65,7 +65,7 @@ public class AudioCallActivity extends AppCompatActivity {
     List<UserModel> userModels = new ArrayList<>();
     UserDatabase database;
     private MyPreferences preferences;
-    ImageView personphoto, personimageforbg, mikeBT, speakerCall, messageBT, vidCallBT;
+    ImageView personphoto, personimageforbg, mikeBT, speakerCall, vidCallBT;
     int disheight;
     int diswidth;
     int mikeOnOff = 0;
@@ -192,7 +192,6 @@ public class AudioCallActivity extends AppCompatActivity {
         personimageforbg = findViewById(R.id.personimageforbg);
         mikeBT = findViewById(R.id.MikeBT);
         speakerCall = findViewById(R.id.speakerCall);
-        messageBT = findViewById(R.id.MessageBT);
         vidCallBT = findViewById(R.id.vidCallBT);
 
         mikeBT.setOnClickListener(new OnClickListener() {
@@ -219,15 +218,6 @@ public class AudioCallActivity extends AppCompatActivity {
             }
         });
 
-        messageBT.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AudioCallActivity.this, ChatActivity.class);
-                intent.putExtra("userId", String.valueOf(VideoAdapter.selectedPerson));
-                startActivity(intent);
-                finish();
-            }
-        });
         vidCallBT.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -382,10 +372,6 @@ public class AudioCallActivity extends AppCompatActivity {
     private void otherButtons(View view) {
 
         switch (view.getId()) {
-            case R.id.vidCallBT:
-                break;
-            case R.id.MessageBT:
-                break;
             case R.id.MikeBT:
                 if (mikeOnOff == 0) {
                     mikeBT.setImageResource(R.drawable.ic_mike_off);
@@ -394,8 +380,6 @@ public class AudioCallActivity extends AppCompatActivity {
                     mikeBT.setImageResource(R.drawable.ic_mike_on);
                     mikeOnOff = 0;
                 }
-                break;
-            case R.id.messageLay1:
                 break;
             default:
                 break;

@@ -83,10 +83,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.vocsy.fakecall.ui.ChatActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
             android:name="com.vocsy.fakecall.permission.MyPermission"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />

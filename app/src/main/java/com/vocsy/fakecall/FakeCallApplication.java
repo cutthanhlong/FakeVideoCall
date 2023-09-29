@@ -1,12 +1,14 @@
 package com.vocsy.fakecall;
 
 
-import android.app.Application;
 import android.content.Context;
 
 import androidx.multidex.MultiDex;
 
-public class FakeCallApplication extends Application {
+import vocsy.ads.AdsApplication;
+
+
+public class FakeCallApplication extends AdsApplication {
     private static Context mContext;
 
     public void onCreate() {

@@ -49,13 +49,16 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:theme"
         tools:targetApi="Q">
+        <activity
+            android:name="com.vocsy.fakecall.ui.SplashActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
 
         <activity
-            android:name="com.vocsy.fakecall.ui.SettingScreenActivity"
+            android:name="com.vocsy.fakecall.ui.SettingActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
@@ -71,7 +74,13 @@
         </provider>
 
         <activity
-            android:name="com.vocsy.fakecall.ui.MainScreenActivity"
+            android:name="com.vocsy.fakecall.myBilling.MyBilling"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:replace="android:exported" />
+
+        <activity
+            android:name="com.vocsy.fakecall.newFakeCall.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
 
@@ -83,30 +92,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.vocsy.fakecall.base.MyPermission"
+            android:name="com.vocsy.fakecall.ui.ChatActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name="com.vocsy.fakecall.ui.VoiceCallScreenActivity"
+            android:name="com.vocsy.fakecall.permission.MyPermission"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name="com.vocsy.fakecall.ui.AudioCallActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.vocsy.fakecall.ui.VideoCallScreenActivity"
+            android:name="com.vocsy.fakecall.ui.VideoCallActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.vocsy.fakecall.ui.FinalVideoCallScreenActivity"
+            android:name="com.vocsy.fakecall.ui.FinalVideoCallActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.vocsy.fakecall.ui.AddContactScreenActivity"
+            android:name="com.vocsy.fakecall.ui.AddPersonClickActivity"
             android:screenOrientation="portrait" />
 
         <service
-            android:name="com.vocsy.fakecall.service.VideoCallAlarmService"
+            android:name="com.vocsy.fakecall.VideoCallAlarmService"
             android:enabled="true"
             android:exported="false"
             android:process=":remote"
             android:stopWithTask="false" />
         <service
-            android:name="com.vocsy.fakecall.service.AudioCallAlarmService"
+            android:name="com.vocsy.fakecall.AudioCallAlarmService"
             android:enabled="true"
             android:exported="false"
             android:process=":remote"

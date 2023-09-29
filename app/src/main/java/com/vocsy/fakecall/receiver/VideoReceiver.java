@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 
-import com.vocsy.fakecall.service.VideoCallAlarmService;
+import com.vocsy.fakecall.VideoCallAlarmService;
 
 public class VideoReceiver extends BroadcastReceiver {
 

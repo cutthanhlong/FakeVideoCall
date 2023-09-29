@@ -2,58 +2,63 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:background="@color/white"
-    android:orientation="vertical">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:orientation="horizontal"
-        android:padding="8dp">
+        >
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageperson"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:foregroundGravity="center"
-            android:src="@drawable/sehun" />
+    <com.vocsy.fakecall.CircleImageView
+        android:id="@+id/imageperson"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/sehun"
+        android:foregroundGravity="center"
+        />
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:paddingLeft="16dp"
+        >
+
+        <TextView
+            android:id="@+id/nameofperson"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:visibility="visible">
+            android:gravity="left"
+            android:text="hello"
+            android:transitionName="textTransaction"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            />
 
-            <TextView
-                android:id="@+id/nameofperson"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="hello"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:transitionName="textTransaction" />
+        <TextView
+            android:id="@+id/numberofperson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="hello"
+            android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/numberofperson"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="hello"
-                android:textSize="14sp" />
-
-        </LinearLayout>
     </LinearLayout>
-
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="0.4dp"
-        android:background="#99000000" />
+        android:background="#99000000"
+        />
 
 </LinearLayout>

@@ -4,5 +4,10 @@
     <dimen name="mic_button_halo_radius_max">76.0dip</dimen>
     <dimen name="mic_button_halo_radius_min">35.0dip</dimen>
     <dimen name="mic_button_size">152.0dip</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_pre_medium">12dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 
 </resources>

@@ -7,7 +7,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.vocsy.fakecall.service.AudioCallAlarmService;
+import com.vocsy.fakecall.AudioCallAlarmService;
 
 public class VoiceReceiver extends BroadcastReceiver {
 
